@@ -1,23 +1,14 @@
 # Use uma imagem base com OpenJDK 17
-FROM adoptopenjdk/openjdk20:latest AS build
+FROM ubuntu:latest AS build
 
-# Defina o diretório de trabalho
-WORKDIR /app
-
-# Copie o código-fonte e o arquivo pom.xml para o contêiner
+RUN apt-get update
+RUN apt-get install openjdk17-jdk -y
 COPY . .
 
-# Instale o Maven
-RUN apt-get update && apt-get install -y maven
-
-# Compile o projeto com o Maven
+RUN apt-get install maven -y 
 RUN mvn clean install
 
-# Crie uma imagem de produção com uma imagem base mais leve
-FROM adoptopenjdk/openjdk20:slim
-
-# Defina o diretório de trabalho
-WORKDIR /app
+FROM openjdk:17-jdk-slim
 
 # Exponha a porta 8080 (se necessário)
 EXPOSE 8080

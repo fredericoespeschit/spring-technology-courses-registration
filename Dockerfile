@@ -17,4 +17,4 @@ EXPOSE 8080
 COPY --from=build /app/target/technology-courses-registration-backend-1.0.0.jar app.jar
 
 # Defina o comando de inicialização
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

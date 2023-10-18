@@ -14,7 +14,7 @@ FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
 # Copie o arquivo JAR compilado do estágio de compilação para o estágio de produção
-COPY --from=build /app/target/technology-courses-registration-backend-1.0.0.jar app.jar
+COPY --from=build target/technology-courses-registration-backend-0.0.1-SNAPSHOT.jar app.jar
 
 # Defina o comando de inicialização
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -1,4 +1,4 @@
-/Volumes/others/study/loianetraining/technology-courses-registration/technology-courses-registration-backend/src/main/java/com/fredericoespeschit/controller/CourseController.java
-/Volumes/others/study/loianetraining/technology-courses-registration/technology-courses-registration-backend/src/main/java/com/fredericoespeschit/repository/CourseRepository.java
-/Volumes/others/study/loianetraining/technology-courses-registration/technology-courses-registration-backend/src/main/java/com/fredericoespeschit/TechnologyCoursesRegistrationBackendApplication.java
-/Volumes/others/study/loianetraining/technology-courses-registration/technology-courses-registration-backend/src/main/java/com/fredericoespeschit/model/Course.java
+/Volumes/others/study/loianetraining/back/spring-technology-courses-registration/src/main/java/com/fredericoespeschit/repository/CourseRepository.java
+/Volumes/others/study/loianetraining/back/spring-technology-courses-registration/src/main/java/com/fredericoespeschit/controller/CourseController.java
+/Volumes/others/study/loianetraining/back/spring-technology-courses-registration/src/main/java/com/fredericoespeschit/model/Course.java
+/Volumes/others/study/loianetraining/back/spring-technology-courses-registration/src/main/java/com/fredericoespeschit/TechnologyCoursesRegistrationBackendApplication.java

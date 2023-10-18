@@ -1,18 +1,29 @@
-FROM ubuntu:latest AS build
+# Use uma imagem base com OpenJDK 17
+FROM adoptopenjdk/openjdk20:latest AS build
 
-RUN apt-get update
+# Defina o diretório de trabalho
+WORKDIR /app
 
-RUN apt-get install openjdk-17-jdk -y
+# Copie o código-fonte e o arquivo pom.xml para o contêiner
+COPY . .
 
-COPY . . 
+# Instale o Maven
+RUN apt-get update && apt-get install -y maven
 
-RUN apt-get install maven -y
+# Compile o projeto com o Maven
 RUN mvn clean install
 
-FROM openjdk:17-jdk-slim
+# Crie uma imagem de produção com uma imagem base mais leve
+FROM adoptopenjdk/openjdk20:slim
 
+# Defina o diretório de trabalho
+WORKDIR /app
+
+# Exponha a porta 8080 (se necessário)
 EXPOSE 8080
 
-COPY --from=build /target/technology-courses-registration-backend-1.0.0.jar app.jar
+# Copie o arquivo JAR compilado do estágio de compilação para o estágio de produção
+COPY --from=build /app/target/technology-courses-registration-backend-1.0.0.jar app.jar
 
-ENTRYPOINT [ "java", "-jar", "app.jar" ]
+# Defina o comando de inicialização
+CMD ["java", "-jar", "app.jar"]
